@@ -17,6 +17,11 @@ export class App {
       isGraduate: true,
     },
     {
+      name: 'Homi J. Bhabha',
+      age: 65,
+      isGraduate: true,
+    },
+    {
       name: 'Vikram Sarabhai',
       age: 60,
       isGraduate: true,

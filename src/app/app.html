@@ -1,5 +1,5 @@
 <div class="container pt-2">
-<button class="btn btn-primary mb-2">Create New</button>
+  <button class="btn btn-primary mb-2">Create New</button>
 
   <table class="table table-bordered">
     <thead>
@@ -11,33 +11,17 @@
       </tr>
     </thead>
     <tbody>
+      @for(employee of employees(); track employee.name){
       <tr>
-        <td>{{employees()[0].name}}</td>
-        <td>{{employees()[0].age}}</td>
-        <td>{{employees()[0].isGraduate}}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.age }}</td>
+        <td>{{ employee.isGraduate }}</td>
         <td>
           <button class="btn btn-primary">Edit</button>
           <button class="btn btn-danger ms-2">Delete</button>
         </td>
       </tr>
-      <tr>
-        <td>{{employees()[1].name}}</td>
-        <td>{{employees()[1].age}}</td>
-        <td>{{employees()[1].isGraduate}}</td>
-        <td>
-          <button class="btn btn-primary">Edit</button>
-          <button class="btn btn-danger ms-2">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>{{employees()[2].name}}</td>
-        <td>{{employees()[2].age}}</td>
-        <td>{{employees()[2].isGraduate}}</td>
-        <td>
-          <button class="btn btn-primary">Edit</button>
-          <button class="btn btn-danger ms-2">Delete</button>
-        </td>
-      </tr>
+      }
     </tbody>
   </table>
 </div>
