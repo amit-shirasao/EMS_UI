@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { IEmployee } from '../interfaces/IEmployee';
+import { EmployeeService } from '../services/employee/employee-service';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +11,8 @@ import { IEmployee } from '../interfaces/IEmployee';
   standalone: true,
 })
 export class App {
-  protected employees = signal<IEmployee[]>([
-    {
-      name: 'Amit Shirasao',
-      age: 40,
-      isGraduate: true,
-    },
-    {
-      name: 'Homi J. Bhabha',
-      age: 65,
-      isGraduate: true,
-    },
-    {
-      name: 'Vikram Sarabhai',
-      age: 60,
-      isGraduate: true,
-    },
-    {
-      name: 'APJ Abdul Kalam',
-      age: 45,
-      isGraduate: true,
-    },
-  ]);
+  private employeeService = inject(EmployeeService);
+  // constructor(private employeeService: EmployeeService) {}
+
+  protected employees = signal<IEmployee[]>([]);
 }
