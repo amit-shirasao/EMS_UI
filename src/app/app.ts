@@ -24,4 +24,17 @@ export class App implements OnInit {
       },
     });
   }
+
+  handleCreateNewBtnClick() {
+    let blankEmployee: IEmployee = {
+      name: '',
+      age: 0,
+      isGraduate: false,
+      isInEditMode: true,
+    };
+
+    let newArray = [blankEmployee, ...this.employees()];
+
+    this.employees.set(newArray);
+  }
 }
