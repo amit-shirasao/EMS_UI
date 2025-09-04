@@ -19,6 +19,10 @@ export class App implements OnInit {
   protected employees = signal<IEmployee[]>([]);
 
   ngOnInit(): void {
+    this.getAllEmployees();
+  }
+
+  getAllEmployees() {
     this.employeeService.getAllEmployees().subscribe({
       next: (employeeReturn: IEmployeeReturn) => {
         this.employees.set(employeeReturn.data);
@@ -37,5 +41,36 @@ export class App implements OnInit {
     let newArray = [blankEmployee, ...this.employees()];
 
     this.employees.set(newArray);
+  }
+
+  handleSaveBtnClick(employee: IEmployee) {
+    employee.isInEditMode = false;
+    if (employee._id) {
+      // Give a PUT call.
+      this.updateEmployee(employee);
+    } else {
+      // Give a POST call.
+      this.addEmployee(employee);
+    }
+  }
+
+  addEmployee(employee: IEmployee) {
+    delete employee.isInEditMode;
+
+    this.employeeService.addEmployee(employee).subscribe({
+      next: () => {
+        this.getAllEmployees();
+      },
+    });
+  }
+
+  updateEmployee(employee: IEmployee) {
+    delete employee.isInEditMode;
+
+    this.employeeService.updateEmployeeById(employee._id as String, employee).subscribe({
+      next: () => {
+        this.getAllEmployees();
+      },
+    });
   }
 }
