@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { IEmployee } from '../interfaces/IEmployee';
 import { EmployeeService } from '../services/employee/employee-service';
 import { IEmployeeReturn } from '../interfaces/IEmployeeReturn';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   standalone: true,
@@ -28,7 +29,7 @@ export class App implements OnInit {
   handleCreateNewBtnClick() {
     let blankEmployee: IEmployee = {
       name: '',
-      age: 0,
+      age: null,
       isGraduate: false,
       isInEditMode: true,
     };
