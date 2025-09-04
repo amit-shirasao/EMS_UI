@@ -16,5 +16,15 @@ export class App {
       age: 40,
       isGraduate: true,
     },
+    {
+      name: 'Vikram Sarabhai',
+      age: 60,
+      isGraduate: true,
+    },
+    {
+      name: 'APJ Abdul Kalam',
+      age: 45,
+      isGraduate: true,
+    },
   ]);
 }
