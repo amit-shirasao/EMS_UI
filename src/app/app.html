@@ -11,17 +11,29 @@
       </tr>
     </thead>
     <tbody>
-      @for(employee of employees(); track employee.name){
+      @for(employee of employees(); track employee.name){ @if(employee.isInEditMode){
+      <tr>
+        <td><input type="text" /></td>
+        <td><input type="text" /></td>
+        <td><input type="checkbox" /></td>
+        <td>
+          <button class="btn btn-primary">Save</button>
+          <button class="btn btn-danger ms-2" (click)="employee.isInEditMode = false">
+            Cancel
+          </button>
+        </td>
+      </tr>
+      } @else{
       <tr>
         <td>{{ employee.name }}</td>
         <td>{{ employee.age }}</td>
         <td>{{ employee.isGraduate }}</td>
         <td>
-          <button class="btn btn-primary">Edit</button>
+          <button class="btn btn-primary" (click)="employee.isInEditMode = true">Edit</button>
           <button class="btn btn-danger ms-2">Delete</button>
         </td>
       </tr>
-      }
+      } }
     </tbody>
   </table>
 </div>

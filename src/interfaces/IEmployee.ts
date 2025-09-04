@@ -4,4 +4,5 @@ export interface IEmployee {
   name: String;
   age: Number;
   isGraduate: Boolean;
+  isInEditMode?: Boolean;
 }
