@@ -8,21 +8,22 @@ import { IEmployee } from '../../interfaces/IEmployee';
   providedIn: 'root',
 })
 export class EmployeeService {
+  private serviceUrl: string = "https://ems-api.shirasao.com/"
   constructor(private httpClient: HttpClient) {}
 
   public getAllEmployees(): Observable<IEmployeeReturn> {
-    return this.httpClient.get<IEmployeeReturn>('http://localhost:3000/');
+    return this.httpClient.get<IEmployeeReturn>(this.serviceUrl);
   }
 
   public addEmployee(newEmployee: IEmployee): Observable<IEmployeeReturn> {
-    return this.httpClient.post<IEmployeeReturn>('http://localhost:3000/', newEmployee);
+    return this.httpClient.post<IEmployeeReturn>(this.serviceUrl, newEmployee);
   }
 
   public updateEmployeeById(id: String, updatedEmployee: IEmployee): Observable<IEmployeeReturn> {
-    return this.httpClient.put<IEmployeeReturn>(`http://localhost:3000/${id}`, updatedEmployee);
+    return this.httpClient.put<IEmployeeReturn>(`${this.serviceUrl}${id}`, updatedEmployee);
   }
 
   public removeEmployeeById(id: String): Observable<IEmployeeReturn> {
-    return this.httpClient.delete<IEmployeeReturn>(`http://localhost:3000/${id}`);
+    return this.httpClient.delete<IEmployeeReturn>(`${this.serviceUrl}${id}`);
   }
 }
