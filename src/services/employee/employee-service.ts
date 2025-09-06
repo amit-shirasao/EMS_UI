@@ -8,7 +8,7 @@ import { IEmployee } from '../../interfaces/IEmployee';
   providedIn: 'root',
 })
 export class EmployeeService {
-  private serviceUrl: string = "https://ems-api.shirasao.com/"
+  private serviceUrl: string = 'https://ems-api.shirasao.com/';
   constructor(private httpClient: HttpClient) {}
 
   public getAllEmployees(): Observable<IEmployeeReturn> {
