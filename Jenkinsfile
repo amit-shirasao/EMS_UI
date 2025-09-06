@@ -4,6 +4,7 @@ pipeline {
   stages {
     stage('Build and Deploy') {
       steps {
+        sh 'echo "Hello from EMS UI."'
         sh 'npm i'
         sh 'ng build --no-interactive'
         sh 'rm -rf /home/shirasao-ems/htdocs/ems.shirasao.com/*'
