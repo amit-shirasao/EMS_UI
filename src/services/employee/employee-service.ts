@@ -21,4 +21,8 @@ export class EmployeeService {
   public updateEmployeeById(id: String, updatedEmployee: IEmployee): Observable<IEmployeeReturn> {
     return this.httpClient.put<IEmployeeReturn>(`http://localhost:3000/${id}`, updatedEmployee);
   }
+
+  public removeEmployeeById(id: String): Observable<IEmployeeReturn> {
+    return this.httpClient.delete<IEmployeeReturn>(`http://localhost:3000/${id}`);
+  }
 }

@@ -73,4 +73,12 @@ export class App implements OnInit {
       },
     });
   }
+
+  removeEmployee(employee: IEmployee) {
+    this.employeeService.removeEmployeeById(employee._id as String).subscribe({
+      next: () => {
+        this.getAllEmployees();
+      },
+    });
+  }
 }
